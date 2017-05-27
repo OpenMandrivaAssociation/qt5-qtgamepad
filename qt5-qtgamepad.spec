@@ -19,6 +19,7 @@ BuildRequires: qmake5
 BuildRequires: pkgconfig(Qt5Core)
 BuildRequires: pkgconfig(Qt5Gui)
 BuildRequires: pkgconfig(Qt5Qml)
+BuildRequires: %mklibname -s -d qt5devicediscoverysupport
 
 %description
 The Qt Gamepad module provides a Qt style API to Gamepad controllers
