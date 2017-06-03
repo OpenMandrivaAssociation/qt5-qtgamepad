@@ -20,6 +20,7 @@ BuildRequires: qmake5
 BuildRequires: pkgconfig(Qt5Core)
 BuildRequires: pkgconfig(Qt5Gui)
 BuildRequires: pkgconfig(Qt5Qml)
+BuildRequires: pkgconfig(libudev)
 BuildRequires: %mklibname -s -d qt5devicediscoverysupport
 
 %description
