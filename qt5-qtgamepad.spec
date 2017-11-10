@@ -1,15 +1,17 @@
 %define major 5
 %define libname %mklibname qt5gamepad %{major}
 %define devname %mklibname qt5gamepad -d
-%define beta beta3
+%define beta beta4
 
 Name:	qt5-qtgamepad
 Version: 5.10.0
 %if "%{beta}" != "%{nil}"
-Source0: http://download.qt.io/development_releases/qt/%(echo %{version}|cut -d. -f1-2)/%{version}-%{beta}/submodules/qtgamepad-everywhere-src-%{version}.tar.xz
+%define qttarballdir qtgamepad-everywhere-src-%{version}-%{beta}
+Source0: http://download.qt.io/development_releases/qt/%(echo %{version}|cut -d. -f1-2)/%{version}-%{beta}/submodules/%{qttarballdir}.tar.xz
 Release: 0.%{beta}.1
 %else
-Source0: http://download.qt.io/official_releases/qt/%(echo %{version}|cut -d. -f1-2)/%{version}/submodules/qtgamepad-opensource-src-%{version}.tar.xz
+%define qttarballdir qtgamepad-opensource-src-%{version}
+Source0: http://download.qt.io/official_releases/qt/%(echo %{version}|cut -d. -f1-2)/%{version}/submodules/%{qttarballdir}.tar.xz
 Release: 1
 %endif
 Summary: Qt gamepad library
@@ -51,11 +53,7 @@ BuildRequires: pkgconfig(Qt5Widgets)
 Example code for the %{name} library
 
 %prep
-%if "%{beta}" != "%{nil}"
-%setup -qn qtgamepad-everywhere-src-%{version}
-%else
-%setup -qn qtgamepad-opensource-src-%{version}
-%endif
+%setup -qn %{qttarballdir}
 %qmake_qt5 *.pro
 
 %build
