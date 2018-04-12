@@ -24,6 +24,8 @@ BuildRequires: pkgconfig(Qt5Gui)
 BuildRequires: pkgconfig(Qt5Qml)
 BuildRequires: pkgconfig(libudev)
 BuildRequires: %mklibname -s -d qt5devicediscoverysupport
+# For the Provides: generator
+BuildRequires:	cmake >= 3.11.0-1
 
 %description
 The Qt Gamepad module provides a Qt style API to Gamepad controllers
