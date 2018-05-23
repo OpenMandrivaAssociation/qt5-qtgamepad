@@ -1,7 +1,7 @@
 %define major 5
 %define libname %mklibname qt5gamepad %{major}
 %define devname %mklibname qt5gamepad -d
-%define beta rc2
+%define beta %{nil}
 
 Name:	qt5-qtgamepad
 Version: 5.11.0
