@@ -3,7 +3,7 @@
 %define devname %mklibname qt5gamepad -d
 %define beta %{nil}
 
-Name:	qt5-qtgamepad
+Name: qt5-qtgamepad
 Version: 5.11.2
 %if "%{beta}" != "%{nil}"
 %define qttarballdir qtgamepad-everywhere-src-%{version}-%{beta}
@@ -25,17 +25,17 @@ BuildRequires: pkgconfig(Qt5Qml)
 BuildRequires: pkgconfig(libudev)
 BuildRequires: %mklibname -s -d qt5devicediscoverysupport
 # For the Provides: generator
-BuildRequires:	cmake >= 3.11.0-1
+BuildRequires: cmake >= 3.11.0-1
 
 %description
-The Qt Gamepad module provides a Qt style API to Gamepad controllers
+The Qt Gamepad module provides a Qt style API to Gamepad controllers.
 
 %package -n %{libname}
 Summary: Qt gamepad library
 Group: System/Libraries
 
 %description -n %{libname}
-Qt gamepad library
+Qt gamepad library.
 
 %package -n %{devname}
 Summary: Development files for %{name}
@@ -52,17 +52,17 @@ Requires: %{devname} = %{EVRD}
 BuildRequires: pkgconfig(Qt5Widgets)
 
 %description examples
-Example code for the %{name} library
+Example code for the %{name} library.
 
 %prep
-%setup -qn %{qttarballdir}
+%autosetup -n %{qttarballdir} -p1
 %qmake_qt5 *.pro
 
 %build
-%make
+%make_build
 
 %install
-make install install_docs INSTALL_ROOT="%{buildroot}"
+%make_install install_docs INSTALL_ROOT="%{buildroot}"
 
 %files -n %{libname}
 %{_libdir}/*.so.%{major}*
