@@ -23,6 +23,7 @@ BuildRequires: pkgconfig(Qt5Core)
 BuildRequires: pkgconfig(Qt5Gui)
 BuildRequires: pkgconfig(Qt5Qml)
 BuildRequires: pkgconfig(libudev)
+BuildRequires: pkgconfig(sdl2)
 BuildRequires: %mklibname -s -d qt5devicediscoverysupport
 # For the Provides: generator
 BuildRequires: cmake >= 3.11.0-1
