@@ -12,7 +12,7 @@ Release: 0.%{beta}.1
 %else
 %define qttarballdir qtgamepad-everywhere-src-%{version}
 Source0: http://download.qt.io/official_releases/qt/%(echo %{version}|cut -d. -f1-2)/%{version}/submodules/%{qttarballdir}.tar.xz
-Release: 2
+Release: 3
 %endif
 Summary: Qt gamepad library
 URL: https://github.com/qtproject/qtgamepad
