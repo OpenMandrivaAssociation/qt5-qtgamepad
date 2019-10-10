@@ -1,13 +1,13 @@
 %define major 5
 %define libname %mklibname qt5gamepad %{major}
 %define devname %mklibname qt5gamepad -d
-%define beta %{nil}
+%define beta beta1
 
 Name: qt5-qtgamepad
-Version:	5.13.1
+Version:	5.14.0
 %if "%{beta}" != "%{nil}"
 %define qttarballdir qtgamepad-everywhere-src-%{version}-%{beta}
-Source0: http://download.qt.io/development_releases/qt/%(echo %{version}|cut -d. -f1-2)/%{version}-%(echo %{beta} |sed -e "s,1$,,")/submodules/%{qttarballdir}.tar.xz
+Source0: http://download.qt.io/development_releases/qt/%(echo %{version}|cut -d. -f1-2)/%{version}-%{beta}/submodules/%{qttarballdir}.tar.xz
 Release:	1
 %else
 %define qttarballdir qtgamepad-everywhere-src-%{version}
@@ -25,6 +25,8 @@ BuildRequires: pkgconfig(Qt5Qml)
 BuildRequires: pkgconfig(libudev)
 BuildRequires: pkgconfig(sdl2)
 BuildRequires: %mklibname -s -d qt5devicediscoverysupport
+BuildRequires: qt5-qtdoc
+BuildRequires: qt5-qttools
 # For the Provides: generator
 BuildRequires: cmake >= 3.11.0-1
 
@@ -61,6 +63,7 @@ Example code for the %{name} library.
 
 %build
 %make_build
+%make_build docs
 
 %install
 %make_install install_docs INSTALL_ROOT="%{buildroot}"
@@ -69,6 +72,8 @@ Example code for the %{name} library.
 %{_libdir}/*.so.%{major}*
 %{_libdir}/qt5/qml/QtGamepad
 %{_libdir}/qt5/plugins/gamepads
+%doc %{_docdir}/qt5/qtgamepad.qch
+%doc %{_docdir}/qt5/qtgamepad
 
 %files -n %{devname}
 %{_includedir}/*
