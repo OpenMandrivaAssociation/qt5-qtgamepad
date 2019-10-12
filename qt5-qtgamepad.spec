@@ -27,7 +27,7 @@ BuildRequires: pkgconfig(sdl2)
 BuildRequires: %mklibname -s -d qt5devicediscoverysupport
 BuildRequires: qt5-qtdoc
 BuildRequires: qt5-qttools
-BuildRequires: qdoc5 qt5-doc
+BuildRequires: qdoc5 qt5-doc qt5-assistant
 # For the Provides: generator
 BuildRequires: cmake >= 3.11.0-1
 
