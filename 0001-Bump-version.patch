@@ -1,0 +1,23 @@
+From fa85943ea52625204606a069094a651504e5037c Mon Sep 17 00:00:00 2001
+From: Jani Heikkinen <jani.heikkinen@qt.io>
+Date: Tue, 27 Oct 2020 07:49:44 +0200
+Subject: [PATCH 1/2] Bump version
+
+Change-Id: I904acc61f19d2ba48c7fca168e92f36e220c3b2f
+---
+ .qmake.conf | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/.qmake.conf b/.qmake.conf
+index ba84e23..bbf484f 100644
+--- a/.qmake.conf
++++ b/.qmake.conf
+@@ -3,4 +3,4 @@ load(qt_build_config)
+ CONFIG += warning_clean
+ DEFINES += QT_NO_FOREACH
+ 
+-MODULE_VERSION = 5.15.2
++MODULE_VERSION = 5.15.3
+-- 
+2.31.1
+
